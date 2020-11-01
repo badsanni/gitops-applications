@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: random-generator
-  namespace: random-generator
+  namespace: default
   labels:
     app: random-generator
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: random-generator
