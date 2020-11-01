@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-generator
+  namespace: default
+  labels:
+    app: random-generator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: random-generator
+  template:
+    metadata:
+      labels:
+        app: random-generator
+    spec:
+      containers:
+      - name: random-generator
+        imagePullPolicy: Always
+        # You can build the image off the source code and push to your own docker hub if you prefer.
+        image: chriscmsoft/random-generator:latest
